@@ -272,7 +272,14 @@ export default function Home() {
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
 						<div className="card bg-base-100 shadow-xl">
 							<div className="card-body">
-								<h3 className="card-title text-3xl">Veil Chat</h3>
+								<h3 className="card-title text-3xl">
+									<Link
+										href="https://github.com/vivaswanth-kashyap/VeilChat"
+										target="_blank"
+									>
+										Veil Chat
+									</Link>
+								</h3>
 								<ul className="list-disc ml-8">
 									<li className="mb-2">
 										Built the frontend with React js and tailwind css
@@ -290,7 +297,14 @@ export default function Home() {
 						</div>
 						<div className="card bg-base-100 shadow-xl">
 							<div className="card-body">
-								<h3 className="card-title text-3xl">Stevens Stack Overflow</h3>
+								<h3 className="card-title text-3xl">
+									<Link
+										href="https://github.com/vivaswanth-kashyap/CS546_group36_final_project"
+										target="_blank"
+									>
+										Stevens Stack Overflow
+									</Link>
+								</h3>
 								<ul className="list-disc ml-8">
 									<li className="mb-2">
 										Built the API routes with Express js and Node.js
