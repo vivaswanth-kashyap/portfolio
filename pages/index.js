@@ -200,7 +200,7 @@ export default function Home() {
 						<div className="avatar mb-8 lg:mb-0">
 							<div className="w-64 rounded-full shadow-lg">
 								<Image
-									src="/836.jpg"
+									src="/profile.jpg"
 									alt="Vivaswanth Kashyap Madhusudhana"
 									width={256}
 									height={256}
