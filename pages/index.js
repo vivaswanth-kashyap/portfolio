@@ -1,12 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Inter } from "next/font/google";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import {
+	FaGithub,
+	FaLinkedin,
+	FaEnvelope,
+	FaBars,
+	FaTimes,
+} from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+	const toggleMenu = () => {
+		setIsMenuOpen(!isMenuOpen);
+	};
+
 	return (
 		<div className="min-h-screen relative overflow-hidden">
 			<Image
@@ -24,14 +36,14 @@ export default function Home() {
 				className="absolute z-0 opacity-50"
 			/>
 
-			<header className="container mx-auto py-8 px-4 relative z-10 text-white">
+			<header className="container mx-auto py-4 px-4 relative z-10 text-white">
 				<nav className="navbar">
 					<div className="navbar-start">
 						<Link href="/">
-							<h1 className="text-4xl font-bold tracking-wide flex items-center">
+							<h1 className="text-2xl font-bold tracking-wide flex items-center">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
-									className="h-10 w-10 mr-2"
+									className="h-8 w-8 mr-2"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke="currentColor"
@@ -48,7 +60,21 @@ export default function Home() {
 						</Link>
 					</div>
 					<div className="navbar-end">
-						<ul className="menu menu-horizontal">
+						<button
+							className="btn btn-square btn-ghost lg:hidden"
+							onClick={toggleMenu}
+						>
+							{isMenuOpen ? (
+								<FaTimes className="text-2xl" />
+							) : (
+								<FaBars className="text-2xl" />
+							)}
+						</button>
+						<ul
+							className={`menu menu-horizontal bg-base-100 lg:bg-transparent absolute lg:static top-full left-0 right-0 z-20 lg:flex ${
+								isMenuOpen ? "flex" : "hidden"
+							}`}
+						>
 							<li>
 								<Link href="#about">
 									<svg
@@ -144,29 +170,48 @@ export default function Home() {
 									Contact
 								</Link>
 							</li>
+							<li>
+								<Link href="/blog">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										className="h-6 w-6 mr-2"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="2"
+											d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+										/>
+									</svg>
+									Blog
+								</Link>
+							</li>
 						</ul>
 					</div>
 				</nav>
 			</header>
 
-			<main className="container mx-auto px-4 relative z-10 ">
+			<main className="container mx-auto px-4 relative z-10">
 				<section id="about" className="hero min-h-screen">
 					<div className="hero-content flex-col lg:flex-row">
-						<div className="avatar">
-							<div className="w-80 rounded-full shadow-lg">
+						<div className="avatar mb-8 lg:mb-0">
+							<div className="w-64 rounded-full shadow-lg">
 								<Image
 									src="/836.jpg"
 									alt="Vivaswanth Kashyap Madhusudhana"
-									width={400}
-									height={400}
+									width={256}
+									height={256}
 								/>
 							</div>
 						</div>
-						<div className="lg:ml-8 text-white">
-							<h2 className="text-5xl font-bold mb-4 flex items-center">
+						<div className="lg:ml-8 text-white text-center lg:text-left">
+							<h2 className="text-4xl font-bold mb-4 flex items-center justify-center lg:justify-start">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
-									className="h-12 w-12 mr-2"
+									className="h-10 w-10 mr-2"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke="currentColor"
@@ -269,7 +314,7 @@ export default function Home() {
 							className="absolute z-0 opacity-50"
 						/>
 					</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
+					<div className="grid grid-cols-1 gap-12 relative z-10">
 						<div className="card bg-base-100 shadow-xl">
 							<div className="card-body">
 								<h3 className="card-title text-3xl">
