@@ -69,42 +69,7 @@ export default function Blog() {
 								<p className="text-lg mb-4">
 									I recently built my new portfolio website using the Next.js
 									framework and wanted to share an overview of the process and
-									technologies used. Next.js is a powerful React framework that
-									provides a great developer experience and optimized
-									performance out of the box. Here are the key steps and
-									components involved in creating this portfolio site: Set up a
-									new Next.js project I started by creating a new Next.js app
-									using the create-next-app tool. This bootstrapped a project
-									structure with pages, components, and styles directories.
-									Design and build out the pages Next, I designed the various
-									pages and sections I wanted to include - Home, About,
-									Experience, Projects, Skills, Contact and Blog. I used a
-									combination of React components, JSX, and CSS to build out the
-									structure and layout of each page. Add interactivity with
-									React To make the site interactive, I leveraged React state
-									and event handlers. This enabled features like the responsive
-									mobile menu that opens/closes when clicked. Style with
-									Tailwind CSS For quickly styling the site, I used the Tailwind
-									CSS framework. Tailwind provides a set of utility classes that
-									make it easy to customize the look and feel without writing a
-									lot of custom CSS. I'm a big fan of how productive Tailwind
-									is. Optimize images To ensure fast load times, I used the
-									Next.js Image component to automatically optimize and resize
-									images. The Image component handles lazy loading, placeholder
-									blurring, and serving appropriately sized images based on the
-									device. Deploy to Vercel Finally, I deployed the portfolio to
-									Vercel, the company behind Next.js. Vercel makes it seamless
-									to deploy Next.js apps - it's just a matter of connecting your
-									Git repository and Vercel will handle the build and
-									deployment. The end result is a fast, optimized static
-									website. And that's the high-level process I followed to build
-									this portfolio site with Next.js! It was a fun project that
-									allowed me to try out some new technologies and add a new site
-									to my portfolio. I look forward to continuing to update and
-									improve it over time. Feel free to explore the source code on
-									my GitHub to dive into the details. And of course, don't
-									hesitate to reach out if you have any questions or feedback on
-									the site. Thanks for reading!
+									technologies used.
 								</p>
 								<div className="card-actions justify-end">
 									<Link href="/blog/post1" className="btn btn-primary">
