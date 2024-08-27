@@ -130,6 +130,14 @@ export default function Home() {
 								</li>
 							)
 						)}
+						<li>
+							<Link
+								href="/blog"
+								className="hover:text-blue-400 transition-colors"
+							>
+								Blog
+							</Link>
+						</li>
 					</ul>
 				</nav>
 			</header>

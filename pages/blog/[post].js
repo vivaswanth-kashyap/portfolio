@@ -71,7 +71,7 @@ const blogPosts = {
         <div class="w-24 h-24 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
       </div>
     `,
-		githubLink: "https://github.com/vivaswanth-kashyap/js-prodigy",
+		githubLink: "https://github.com/vivaswanth-kashyap/JSprodigy",
 	},
 };
 
