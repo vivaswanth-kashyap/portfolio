@@ -165,8 +165,7 @@ export default function Home() {
 								Vivaswanth Kashyap Madhusudhana
 							</h1>
 							<p className="text-xl mb-8">
-								Full-Stack JavaScript Developer | AI Enthusiast | Founder of JS
-								Prodigy
+								Full-Stack Web Developer | AI Enthusiast | Founder of JS Prodigy
 							</p>
 							<div className="flex justify-center space-x-4 mb-8">
 								<a
@@ -200,8 +199,6 @@ export default function Home() {
 					</div>
 				</section>
 
-				{/* Add the Experience, Projects, Skills, and Contact sections here */}
-				{/* ... */}
 				<section id="experience" className="py-20">
 					<div className="container mx-auto px-6">
 						<h2 className="text-4xl font-bold mb-12 text-center">Experience</h2>
