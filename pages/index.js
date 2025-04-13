@@ -33,6 +33,16 @@ import {
 	SiAmazonec2,
 	SiSocketdotio,
 	SiFirebase,
+	SiDocker,
+	SiGo,
+	SiRuby,
+	SiRubyonrails,
+	SiElasticsearch,
+	SiRabbitmq,
+	SiNeo4j,
+	SiTwilio,
+	SiOpenai,
+	SiVimeo,
 } from "react-icons/si";
 
 const AwsIcon = ({ className }) => (
@@ -53,6 +63,7 @@ const AwsIcon = ({ className }) => (
 		</g>
 	</svg>
 );
+
 export default function Home() {
 	const [activeSection, setActiveSection] = useState("about");
 
@@ -76,34 +87,41 @@ export default function Home() {
 
 	const skills = [
 		{ Icon: SiJavascript, name: "JavaScript" },
-		{ Icon: SiReact, name: "ReactJS" },
-		{ Icon: SiNodedotjs, name: "Node.js" },
-		{ Icon: SiExpress, name: "Express.js" },
-		{ Icon: SiNextdotjs, name: "Next.js" },
-		{ Icon: SiRedux, name: "Redux" },
-		{ Icon: SiMongodb, name: "MongoDB" },
-		{ Icon: SiRedis, name: "Redis" },
-		{ Icon: SiApollographql, name: "Apollo" },
-		{ Icon: SiGraphql, name: "GraphQL" },
-		{ Icon: SiTypescript, name: "TypeScript" },
-		{ Icon: SiAmazons3, name: "AWS S3" },
-		{ Icon: SiTailwindcss, name: "Tailwind CSS" },
-		{ Icon: SiHandlebarsdotjs, name: "Handlebars" },
-		{ Icon: SiGit, name: "Git" },
-		{ Icon: SiHtml5, name: "HTML5" },
-		{ Icon: SiCss3, name: "CSS" },
-		{ Icon: SiPostgresql, name: "PostgreSQL" },
+		{ Icon: SiGo, name: "Go" },
 		{ Icon: SiPython, name: "Python" },
+		{ Icon: SiTypescript, name: "TypeScript" },
 		{ Icon: SiCplusplus, name: "C++" },
 		{ Icon: SiPhp, name: "PHP" },
-		{ Icon: SiNetlify, name: "Netlify" },
-		{ Icon: SiDaisyui, name: "DaisyUI" },
+		{ Icon: SiRuby, name: "Ruby" },
+		{ Icon: SiReact, name: "ReactJS" },
+		{ Icon: SiNextdotjs, name: "Next.js" },
+		{ Icon: SiRedux, name: "Redux" },
+		{ Icon: SiHtml5, name: "HTML5" },
+		{ Icon: SiCss3, name: "CSS" },
+		{ Icon: SiTailwindcss, name: "Tailwind CSS" },
+		{ Icon: SiNodedotjs, name: "Node.js" },
+		{ Icon: SiExpress, name: "Express.js" },
+		{ Icon: SiRubyonrails, name: "Ruby on Rails" },
 		{ Icon: SiFlask, name: "Flask" },
-		{ Icon: SiLinux, name: "Linux" },
-		{ Icon: SiAmazonaws, name: "AWS" },
-		{ Icon: SiAmazonec2, name: "EC2" },
+		{ Icon: SiMongodb, name: "MongoDB" },
+		{ Icon: SiPostgresql, name: "PostgreSQL" },
+		{ Icon: SiRedis, name: "Redis" },
+		{ Icon: SiNeo4j, name: "Neo4j" },
+		{ Icon: SiElasticsearch, name: "Elasticsearch" },
+		{ Icon: SiGraphql, name: "GraphQL" },
+		{ Icon: SiApollographql, name: "Apollo" },
 		{ Icon: SiSocketdotio, name: "Web Sockets" },
+		{ Icon: SiRabbitmq, name: "RabbitMQ" },
+		{ Icon: SiAmazonaws, name: "AWS" },
+		{ Icon: SiAmazons3, name: "AWS S3" },
+		{ Icon: SiAmazonec2, name: "EC2" },
+		{ Icon: SiDocker, name: "Docker" },
 		{ Icon: SiFirebase, name: "Firebase" },
+		{ Icon: SiNetlify, name: "Netlify" },
+		{ Icon: SiLinux, name: "Linux" },
+		{ Icon: SiGit, name: "Git" },
+		{ Icon: SiHandlebarsdotjs, name: "Handlebars" },
+		{ Icon: SiDaisyui, name: "DaisyUI" },
 	];
 
 	return (
@@ -193,7 +211,9 @@ export default function Home() {
 							</div>
 							<p className="text-lg">
 								Passionate about building scalable web applications and
-								exploring the frontiers of AI and machine learning.
+								exploring the frontiers of AI and machine learning. Currently
+								pursuing my MS in Computer Science at Stevens Institute of
+								Technology.
 							</p>
 						</motion.div>
 					</div>
@@ -209,21 +229,21 @@ export default function Home() {
 									company: "JS Prodigy",
 									period: "06/2024 - Present",
 									description:
-										"Launched a comprehensive e-learning platform for full-stack JavaScript development. Architected a multi-component system using Next.js, Node.js, and Flask.",
+										"Conceptualized, developed, and launched a comprehensive e-learning platform for full-stack JavaScript development. Architected a multi-component system using Next.js, Node.js, and integrated ML features with Flask.",
 								},
 								{
 									title: "Graduate Student Tutor",
 									company: "Stevens Institute of Technology",
 									period: "04/2024 - Present",
 									description:
-										"Provide academic support for Web Programming-1 course, covering MongoDB, ExpressJS, and frontend JavaScript technologies.",
+										"Provide academic support for Web Programming-I course, covering MongoDB, ExpressJS, and frontend JavaScript technologies. Offer one-on-one support to help students overcome technical challenges.",
 								},
 								{
 									title: "Software Engineer Intern",
 									company: "Crypsis technologies Pvt.Ltd",
 									period: "06/2022 - 06/2023",
 									description:
-										"Contributed to 'autochat', a SaaS platform and Shopify extension, using ReactJS and Redux. Developed website pages for GEMINI Solutions.",
+										"Collaborated with a team of 12 for 'autochat', a SaaS platform and Shopify extension, enabling store owners to track customer interactions using Firebase, ReactJS and Redux. Developed website pages for GEMINI Solutions using Next.js and Tailwind CSS.",
 								},
 							].map((job, index) => (
 								<motion.div
@@ -251,23 +271,67 @@ export default function Home() {
 								{
 									title: "JS Prodigy",
 									description:
-										"A comprehensive e-learning platform for full-stack JavaScript development.",
+										"A comprehensive e-learning platform for full-stack JavaScript development with integrated ML features.",
 									link: "https://jsprodigy.com",
-									tech: ["Next.js", "Express.js", "Firebase", "Flask", "AWS"],
+									tech: [
+										"Next.js",
+										"Express.js",
+										"Firebase",
+										"Flask",
+										"AWS",
+										"OpenAI",
+										"Vimeo API",
+									],
+								},
+								{
+									title: "Video Processing App",
+									description:
+										"Advanced video processing application using Go for backend operations with FFmpeg integration and React/Next.js frontend.",
+									link: "https://github.com/vivaswanth-kashyap/video-processor",
+									tech: ["Go", "FFmpeg", "React", "Next.js", "TypeScript"],
+								},
+								{
+									title: "WhatsApp Clone",
+									description:
+										"Messaging web application with real-time chat functionality built with Go backend and Next.js frontend.",
+									link: "https://github.com/vivaswanth-kashyap/chat-app",
+									tech: ["Go", "Next.js", "WebSockets", "Firebase Auth"],
+								},
+								{
+									title: "Real-time Community Management",
+									description:
+										"Built a community platform with follower graphs, real-time feeds, and hashtag processing.",
+									link: "https://github.com/vivaswanth-kashyap/community-app",
+									tech: [
+										"Node.js",
+										"Express.js",
+										"Neo4j",
+										"RabbitMQ",
+										"Elasticsearch",
+										"MongoDB",
+										"Socket.IO",
+									],
 								},
 								{
 									title: "Veil Chat",
 									description:
-										"Secure messaging application with real-time chat functionality.",
+										"Secure messaging application with real-time chat functionality and interest-based matching.",
 									link: "https://github.com/vivaswanth-kashyap/VeilChat",
-									tech: ["React", "Firebase", "MongoDB", "AWS S3"],
+									tech: [
+										"React",
+										"Firebase",
+										"MongoDB",
+										"AWS S3",
+										"Redis",
+										"Twilio",
+									],
 								},
 								{
 									title: "Stevens Stack Overflow",
 									description:
 										"A Q&A platform for Stevens Institute of Technology students.",
 									link: "https://github.com/vivaswanth-kashyap/CS546_group36_final_project",
-									tech: ["Express.js", "MongoDB", "Handlebars"],
+									tech: ["Express.js", "MongoDB", "Handlebars", "Tailwind CSS"],
 								},
 							].map((project, index) => (
 								<motion.div
@@ -282,7 +346,7 @@ export default function Home() {
 									</h3>
 									<p className="mb-4 flex-grow">{project.description}</p>
 									<div className="flex flex-wrap gap-2 mb-4">
-										{project.tech.map((tech, i) => (
+										{project.tech.slice(0, 4).map((tech, i) => (
 											<span
 												key={i}
 												className="bg-blue-500 bg-opacity-50 px-2 py-1 rounded-full text-sm"
@@ -290,6 +354,11 @@ export default function Home() {
 												{tech}
 											</span>
 										))}
+										{project.tech.length > 4 && (
+											<span className="bg-purple-500 bg-opacity-50 px-2 py-1 rounded-full text-sm">
+												+{project.tech.length - 4} more
+											</span>
+										)}
 									</div>
 									<a
 										href={project.link}
@@ -329,7 +398,25 @@ export default function Home() {
 							whileInView={{ opacity: 1 }}
 							transition={{ duration: 0.8 }}
 							className="mt-12 text-center"
-						></motion.div>
+						>
+							<h3 className="text-2xl font-semibold mb-4">Languages</h3>
+							<div className="flex justify-center gap-8">
+								<div>
+									<p className="font-semibold">English</p>
+									<p className="text-sm text-gray-300">
+										Professional working proficiency
+									</p>
+								</div>
+								<div>
+									<p className="font-semibold">Hindi</p>
+									<p className="text-sm text-gray-300">Native proficiency</p>
+								</div>
+								<div>
+									<p className="font-semibold">Telugu</p>
+									<p className="text-sm text-gray-300">Native proficiency</p>
+								</div>
+							</div>
+						</motion.div>
 					</div>
 				</section>
 
@@ -375,7 +462,8 @@ export default function Home() {
 			<footer className="bg-gray-900 py-6">
 				<div className="container mx-auto px-6 text-center">
 					<p>
-						&copy; 2024 Vivaswanth Kashyap Madhusudhana. All rights reserved.
+						&copy; {new Date().getFullYear()} Vivaswanth Kashyap Madhusudhana.
+						All rights reserved.
 					</p>
 				</div>
 			</footer>
