@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import SkillGroup from '$lib/components/SkillGroup.svelte';
 
 	let mobileMenuOpen = $state(false);
+	let heroCanvas: HTMLCanvasElement | undefined = $state();
 
 	const navLinks = [
 		{ label: 'About', href: '#about' },
@@ -62,6 +64,117 @@
 		mobileMenuOpen = false;
 	}
 
+	onMount(() => {
+		const canvas = heroCanvas;
+		if (!canvas) return;
+		const ctx = canvas.getContext('2d');
+		if (!ctx) return;
+
+		const chars = '01{}[]()<>|/\\;:=+-_$#@!?.';
+		const fontSize = 14;
+		const accent = '96, 165, 250'; // --accent rgb
+
+		let columns: Array<{ x: number; y: number; speed: number; chars: string[] }> = [];
+		let width = 0;
+		let height = 0;
+		let rafId = 0;
+		let lastTime = performance.now();
+
+		function setup() {
+			if (!canvas) return;
+			const dpr = window.devicePixelRatio || 1;
+			const rect = canvas.getBoundingClientRect();
+			width = rect.width;
+			height = rect.height;
+			canvas.width = width * dpr;
+			canvas.height = height * dpr;
+			ctx!.setTransform(1, 0, 0, 1, 0, 0);
+			ctx!.scale(dpr, dpr);
+			ctx!.font = `${fontSize}px 'JetBrains Mono', monospace`;
+			ctx!.textBaseline = 'top';
+
+			const colCount = Math.floor(width / fontSize);
+			const rowCount = Math.ceil(height / fontSize) + 4;
+			columns = [];
+			for (let i = 0; i < colCount; i++) {
+				// Duration 8–12s to traverse full height. px/sec = height / duration.
+				const duration = 8 + Math.random() * 4;
+				const speed = height / duration;
+				const colChars: string[] = [];
+				for (let j = 0; j < rowCount; j++) {
+					colChars.push(chars[Math.floor(Math.random() * chars.length)]);
+				}
+				columns.push({
+					x: i * fontSize,
+					y: -Math.random() * height,
+					speed,
+					chars: colChars
+				});
+			}
+		}
+
+		function draw(dt: number) {
+			ctx!.clearRect(0, 0, width, height);
+
+			for (const col of columns) {
+				col.y += col.speed * dt;
+				const headRow = Math.floor(col.y / fontSize);
+				const totalRows = col.chars.length;
+
+				for (let r = 0; r < totalRows; r++) {
+					const drawY = (headRow - (totalRows - 1 - r)) * fontSize;
+					if (drawY < -fontSize || drawY > height) continue;
+
+					// Occasionally mutate a character for subtle flicker
+					if (Math.random() < 0.004) {
+						col.chars[r] = chars[Math.floor(Math.random() * chars.length)];
+					}
+
+					const distFromHead = totalRows - 1 - r;
+					let opacity: number;
+					if (distFromHead === 0) {
+						opacity = 0.15;
+					} else {
+						// Fade from ~0.08 down to 0.03 over the trail
+						const t = Math.min(1, distFromHead / 8);
+						opacity = 0.08 - t * 0.05;
+					}
+
+					ctx!.fillStyle = `rgba(${accent}, ${opacity})`;
+					ctx!.fillText(col.chars[r], col.x, drawY);
+				}
+
+				// Reset column once head has fully passed the bottom
+				if (col.y - totalRows * fontSize > height) {
+					col.y = -Math.random() * fontSize * 10;
+					const duration = 8 + Math.random() * 4;
+					col.speed = height / duration;
+				}
+			}
+		}
+
+		function frame(now: number) {
+			const dt = Math.min(0.05, (now - lastTime) / 1000);
+			lastTime = now;
+			draw(dt);
+			rafId = requestAnimationFrame(frame);
+		}
+
+		function handleResize() {
+			setup();
+		}
+
+		setup();
+		lastTime = performance.now();
+		rafId = requestAnimationFrame(frame);
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			cancelAnimationFrame(rafId);
+			window.removeEventListener('resize', handleResize);
+		};
+	});
+
 	$effect(() => {
 		const sections = document.querySelectorAll('.fade-in');
 		const observer = new IntersectionObserver(
@@ -108,6 +221,7 @@
 <main>
 	<!-- Hero -->
 	<section class="hero">
+		<canvas bind:this={heroCanvas} class="hero-canvas" aria-hidden="true"></canvas>
 		<div class="container">
 			<p class="hero-greeting">Hi, I'm</p>
 			<h1 class="hero-name">Vivaswanth Kashyap Madhusudhana</h1>
@@ -384,6 +498,22 @@
 		display: flex;
 		align-items: center;
 		padding-top: 4rem;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hero-canvas {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		pointer-events: none;
+	}
+
+	.hero > .container {
+		position: relative;
+		z-index: 1;
 	}
 
 	.hero-greeting {
