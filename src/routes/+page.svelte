@@ -24,7 +24,7 @@
 		},
 		{
 			title: 'Real-time Community Platform',
-			tags: ['Go', 'Node.js', 'Neo4j', 'RabbitMQ', 'WebSockets', 'MongoDB'],
+			tags: ['Node.js', 'Neo4j', 'RabbitMQ', 'WebSockets', 'MongoDB'],
 			description:
 				'Community platform with a follower graph built on Neo4j, hashtag and mention extraction via RabbitMQ message queues, and a real-time feed using Socket.IO and MongoDB. Designed for concurrent user handling with efficient WebSocket connection management.',
 			github: 'https://github.com/vivaswanth-kashyap/community'
@@ -40,23 +40,17 @@
 			title: 'JS Prodigy',
 			tags: ['Next.js', 'Node.js', 'Flask', 'AWS', 'OpenAI', 'Vimeo API'],
 			description:
-				'Full-stack e-learning platform for JavaScript development. Multi-component architecture: Next.js frontend, Express backend, Flask ML service for automated doubt-solving via OpenAI API. Vimeo API for video streaming, AWS S3 for file storage, deployed on EC2 and Netlify.',
+				'Full-stack e-learning platform for JavaScript development. Multi-component architecture: Next.js frontend, Express backend, a Flask service for code analysis. OpenAI API for automated doubt-solving. Vimeo API for video streaming, AWS S3 for file storage, deployed on EC2 and Netlify.',
 			github: 'https://github.com/vivaswanth-kashyap/JSProdigy'
 		}
 	];
 
 	const skills = [
-		{ category: 'Languages', items: ['Go', 'TypeScript', 'JavaScript', 'Python', 'C++', 'SQL'] },
-		{
-			category: 'Backend',
-			items: ['Node.js', 'Express.js', 'Gin', 'REST', 'GraphQL', 'WebSockets']
-		},
-		{
-			category: 'Frontend',
-			items: ['React', 'Next.js', 'Svelte', 'Redux', 'Tailwind CSS']
-		},
-		{ category: 'Databases', items: ['PostgreSQL', 'MongoDB', 'Redis', 'Neo4j'] },
-		{ category: 'Infrastructure', items: ['AWS', 'Docker', 'Git', 'Linux'] },
+		{ category: 'Languages', items: ['Python', 'C#', 'Go', 'TypeScript', 'JavaScript', 'SQL', 'C++'] },
+		{ category: 'Backend', items: ['.NET', 'Quart', 'Flask', 'Node.js', 'Express.js', 'Gin', 'REST'] },
+		{ category: 'Data', items: ['SQL Server', 'Azure Cosmos DB', 'PostgreSQL', 'Redis', 'MongoDB', 'Neo4j'] },
+		{ category: 'Frontend', items: ['Angular', 'React', 'Next.js', 'Svelte', 'Tailwind CSS'] },
+		{ category: 'Cloud & Tools', items: ['Azure', 'AWS', 'Docker', 'Git', 'Linux'] },
 		{ category: 'Messaging', items: ['RabbitMQ', 'WebSockets'] }
 	];
 
@@ -225,10 +219,10 @@
 		<div class="container">
 			<p class="hero-greeting">Hi, I'm</p>
 			<h1 class="hero-name">Vivaswanth Kashyap Madhusudhana</h1>
-			<p class="hero-headline">Backend Engineer · Distributed Systems · Go</p>
+			<p class="hero-headline">Backend &amp; Full-Stack Engineer · Python · C#/.NET · Go</p>
 			<p class="hero-sub">
-				I build systems that are honest — well-tested, clearly documented, and built with explicit
-				tradeoffs rather than defaults.
+				I build backend services and workflow systems, from document-processing pipelines to
+				real-time apps, with a focus on clear tradeoffs and maintainable code.
 			</p>
 			<div class="hero-links">
 				<a
@@ -307,15 +301,13 @@
 			<div class="about-content">
 				<p>
 					Software engineer with an MS in Computer Science from Stevens Institute of Technology,
-					focused on backend systems and infrastructure. I build with Go and JavaScript primarily —
-					from CLI and TUI tools to distributed systems with message queues, graph databases, and
-					real-time communication.
+					focused on backend and full-stack development. Most recently at ServiceLink, I built
+					document-processing and workflow features in Python and C#/.NET, backed by SQL Server and
+					Azure Cosmos DB, with Angular frontends.
 				</p>
 				<p>
-					My projects are deliberate explorations. I pick a hard problem, go deep on the technology
-					required to solve it, and build until I understand it well enough to make real design
-					decisions. That has produced work across Neo4j, RabbitMQ, WebSockets, Redis, AWS, and
-					FFmpeg among others.
+					Outside of work I pick hard problems and go deep on the tech, with projects spanning Go,
+					Neo4j, RabbitMQ, WebSockets, Redis, AWS, and FFmpeg.
 				</p>
 			</div>
 		</div>
@@ -330,13 +322,35 @@
 					<div class="timeline-marker"></div>
 					<div class="timeline-content">
 						<div class="timeline-header">
+							<h3>Software Engineer – Full Stack</h3>
+							<span class="timeline-date">May 2026 – Oct 2026</span>
+						</div>
+						<p class="timeline-company">ServiceLink · Plano, TX (Hybrid)</p>
+						<p class="timeline-description">
+							Built automated and manual document stacking (restacking) features on an existing
+							Python (Quart) and PyMuPDF service handling 5,000+ documents per day, with config-driven
+							stacking via Data Mapping Configurations and a drag-and-drop Angular UI; implemented form
+							appending with AcroForm and widget handling. Built a new order dashboard in C# and SQL
+							Server over roughly 4M rows for about 50K users across tenants and clients, tuned its
+							queries (merged two header calls into one, replaced joins with OUTER APPLY), and fixed
+							logic defects that were flooding it with excess orders. Configured DMC and workflow
+							definitions (JSON in Azure Cosmos DB) for sequential workflow orchestration with
+							asynchronous step methods, and extended AI document-review workflows, including a
+							standalone workflow that restitches disorganized vendor-uploaded PDFs.
+						</p>
+					</div>
+				</div>
+				<div class="timeline-item">
+					<div class="timeline-marker"></div>
+					<div class="timeline-content">
+						<div class="timeline-header">
 							<h3>Graduate Student Tutor</h3>
 							<span class="timeline-date">Apr 2024 – May 2025</span>
 						</div>
 						<p class="timeline-company">Stevens Institute of Technology · Hoboken, NJ</p>
 						<p class="timeline-description">
 							Tutored Web Programming covering MongoDB, Express.js, Handlebars, and Jest for unit
-							testing. Supported 20+ students, improving average grades by one letter grade.
+							testing.
 						</p>
 					</div>
 				</div>
@@ -349,9 +363,9 @@
 						</div>
 						<p class="timeline-company">Devathon (Crypsis Technologies) · Hyderabad, India</p>
 						<p class="timeline-description">
-							Developed features for the Autochat SaaS platform using React, Redux, and Firebase. Led
-							design and development of the GEMINI Solutions landing and community pages in Next.js
-							and Tailwind CSS, delivering from Figma mockups across a 12-member Agile team.
+							Developed features for the Autochat SaaS platform using React, Redux, and Firebase. Built
+							the GEMINI Solutions landing and community pages in Next.js and Tailwind CSS,
+							delivering from Figma mockups across a 12-member Agile team.
 						</p>
 					</div>
 				</div>
